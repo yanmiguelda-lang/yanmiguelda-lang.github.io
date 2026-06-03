@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Comunidade ENEM — Garanta sua vaga</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: #0a0a12;
+      color: #f0ede8;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1rem;
+    }
+
+    .page {
+      width: 100%;
+      max-width: 480px;
+    }
+
+    .hero {
+      background: #0a0a12;
+      padding: 3rem 2rem 2rem;
+      text-align: center;
+      border: 1px solid rgba(255,255,255,0.07);
+      border-bottom: none;
+      border-radius: 16px 16px 0 0;
+    }
+
+    .badge {
+      display: inline-block;
+      background: rgba(255, 200, 50, 0.12);
+      border: 1px solid rgba(255, 200, 50, 0.3);
+      color: #ffc832;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 100px;
+      margin-bottom: 1.5rem;
+    }
+
+    h1 {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(26px, 6vw, 40px);
+      font-weight: 800;
+      line-height: 1.15;
+      color: #ffffff;
+      margin-bottom: 1rem;
+    }
+
+    h1 span { color: #ffc832; }
+
+    .subtitle {
+      font-size: 15px;
+      color: rgba(240,237,232,0.6);
+      line-height: 1.7;
+      margin-bottom: 2rem;
+    }
+
+    .features {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: center;
+      margin-bottom: 2rem;
+    }
+
+    .feat {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      color: rgba(240,237,232,0.75);
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 100px;
+      padding: 6px 13px;
+    }
+
+    .feat i { color: #ffc832; font-size: 15px; }
+
+    .social-proof {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      font-size: 12px;
+      color: rgba(240,237,232,0.35);
+    }
+
+    .avatars { display: flex; }
+
+    .avatar {
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      border: 2px solid #0a0a12;
+      margin-left: -8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 10px; font-weight: 700;
+    }
+
+    .avatar:first-child { margin-left: 0; }
+    .av1 { background: #3B6D11; color: #C0DD97; }
+    .av2 { background: #3C3489; color: #CECBF6; }
+    .av3 { background: #993C1D; color: #F5C4B3; }
+    .av4 { background: #085041; color: #9FE1CB; }
+
+    .form-section {
+      background: #111120;
+      padding: 2rem;
+      border: 1px solid rgba(255,255,255,0.07);
+      border-top: none;
+      border-radius: 0 0 16px 16px;
+    }
+
+    .form-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      text-align: center;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+
+    .form-hint {
+      text-align: center;
+      font-size: 13px;
+      color: rgba(240,237,232,0.4);
+      margin-bottom: 1.5rem;
+    }
+
+    .field { margin-bottom: 14px; }
+
+    .field label {
+      display: block;
+      font-size: 11px;
+      font-weight: 500;
+      color: rgba(240,237,232,0.45);
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .field input {
+      width: 100%;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 8px;
+      color: #f0ede8;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      padding: 12px 14px;
+      outline: none;
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .field input:focus {
+      border-color: rgba(255, 200, 50, 0.5);
+      background: rgba(255,200,50,0.04);
+    }
+
+    .field input::placeholder { color: rgba(240,237,232,0.2); }
+
+    .btn {
+      width: 100%;
+      background: #ffc832;
+      color: #0a0a12;
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 15px;
+      border: none;
+      border-radius: 8px;
+      padding: 14px;
+      cursor: pointer;
+      margin-top: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: opacity 0.2s, transform 0.15s;
+    }
+
+    .btn:hover { opacity: 0.88; transform: translateY(-1px); }
+    .btn:active { transform: scale(0.98); }
+    .btn:disabled { opacity: 0.45; cursor: not-allowed; transform: none; }
+
+    .disclaimer {
+      text-align: center;
+      font-size: 11px;
+      color: rgba(240,237,232,0.25);
+      margin-top: 12px;
+    }
+
+    #status {
+      font-size: 12px;
+      text-align: center;
+      margin-top: 10px;
+      min-height: 18px;
+    }
+
+    .success {
+      display: none;
+      text-align: center;
+      padding: 2.5rem 2rem;
+      background: #111120;
+      border: 1px solid rgba(255,255,255,0.07);
+      border-top: none;
+      border-radius: 0 0 16px 16px;
+    }
+
+    .success-icon {
+      width: 60px; height: 60px;
+      background: rgba(255,200,50,0.15);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 1rem;
+      font-size: 26px;
+      color: #ffc832;
+    }
+
+    .success h3 {
+      font-family: 'Syne', sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+
+    .success p {
+      font-size: 14px;
+      color: rgba(240,237,232,0.5);
+      line-height: 1.6;
+    }
+
+    @media (max-width: 520px) {
+      .hero, .form-section, .success { padding: 2rem 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <div class="hero">
+    <div class="badge">Comunidade ENEM 2026</div>
+    <h1>Passe no ENEM com quem<br><span>já passou</span></h1>
+    <p class="subtitle">Videoaulas, plano de estudos personalizado e contato direto com professores e aprovados. Tudo em uma comunidade no Discord.</p>
+    <div class="features">
+      <div class="feat"><i class="ti ti-video"></i> Videoaulas</div>
+      <div class="feat"><i class="ti ti-calendar"></i> Plano de estudos</div>
+      <div class="feat"><i class="ti ti-school"></i> Professores ao vivo</div>
+      <div class="feat"><i class="ti ti-trophy"></i> Aprovados no ENEM</div>
+      <div class="feat"><i class="ti ti-brand-discord"></i> Comunidade Discord</div>
+    </div>
+    <div class="social-proof">
+      <div class="avatars">
+        <div class="avatar av1">LM</div>
+        <div class="avatar av2">RB</div>
+        <div class="avatar av3">AS</div>
+        <div class="avatar av4">+</div>
+      </div>
+      Seja um dos primeiros a garantir sua vaga
+    </div>
+  </div>
+
+  <div class="form-section" id="form-section">
+    <p class="form-title">Garanta sua vaga agora</p>
+    <p class="form-hint">É grátis entrar na lista — vagas limitadas</p>
+
+    <div class="field">
+      <label>Seu nome completo</label>
+      <input type="text" id="inp-nome" placeholder="Ex: João Silva" autocomplete="name" />
+    </div>
+    <div class="field">
+      <label>E-mail</label>
+      <input type="email" id="inp-email" placeholder="joao@email.com" autocomplete="email" />
+    </div>
+    <div class="field">
+      <label>WhatsApp</label>
+      <input type="tel" id="inp-whats" placeholder="(11) 99999-9999" autocomplete="tel" />
+    </div>
+
+    <button class="btn" id="btn-enviar" onclick="enviarLead()">
+      <i class="ti ti-brand-discord"></i>
+      Quero entrar na comunidade
+    </button>
+    <p class="disclaimer">Sem spam. Seus dados são usados apenas para contato da nossa equipe.</p>
+    <p id="status"></p>
+  </div>
+
+  <div class="success" id="success-section">
+    <div class="success-icon"><i class="ti ti-check"></i></div>
+    <h3>Recebemos seus dados!</h3>
+    <p>Nossa equipe vai entrar em contato em breve pelo WhatsApp. Fique de olho!</p>
+  </div>
+
+</div>
+
+<script>
+  const WHATSAPP_NUMBER = "5511967375506";
+
+  document.getElementById('inp-whats').addEventListener('input', function () {
+    let v = this.value.replace(/\D/g, '');
+    if (v.length > 11) v = v.slice(0, 11);
+    if (v.length > 6) v = '(' + v.slice(0,2) + ') ' + v.slice(2,7) + '-' + v.slice(7);
+    else if (v.length > 2) v = '(' + v.slice(0,2) + ') ' + v.slice(2);
+    else if (v.length > 0) v = '(' + v;
+    this.value = v;
+  });
+
+  async function enviarLead() {
+    const numero = "5511967375506";
+    const nome  = document.getElementById('inp-nome').value.trim();
+    const email = document.getElementById('inp-email').value.trim();
+    const whats = document.getElementById('inp-whats').value.trim();
+    const status = document.getElementById('status');
+    const btn    = document.getElementById('btn-enviar');
+
+    if (!nome || !email || !whats) {
+      status.textContent = 'Por favor, preencha todos os campos.';
+      status.style.color = '#E24B4A';
+      return;
+    }
+
+    if (!email.includes('@') || !email.includes('.')) {
+      status.textContent = 'Digite um e-mail válido.';
+      status.style.color = '#E24B4A';
+      return;
+    }
+
+    btn.disabled = true;
+    btn.innerHTML = '<i class="ti ti-loader-2"></i> Enviando...';
+    status.textContent = '';
+
+    try {
+      const resp = await fetch('https://formspree.io/f/mvznpbyg', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({ nome, email, whats, _subject: 'Novo Lead — Comunidade ENEM 2026' })
+      });
+
+      if (resp.ok) {
+        document.getElementById('form-section').style.display = 'none';
+        document.getElementById('success-section').style.display = 'block';
+      } else {
+        throw new Error('erro');
+      }
+    } catch(e) {
+      status.textContent = 'Erro ao enviar. Tente novamente.';
+      status.style.color = '#E24B4A';
+      btn.disabled = false;
+      btn.innerHTML = '<i class="ti ti-brand-discord"></i> Quero entrar na comunidade';
+    }
+  }
+</script>
+</body>
+</html>
